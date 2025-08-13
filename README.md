@@ -1,31 +1,28 @@
 # Introvert-Extrovert Prediction
 
-Machine learning model to classify introvert vs extrovert using multiple algorithms and feature engineering.
+Classify a person as introvert or extrovert with machine learning.
 
 ## Dataset
-- **Train:** 18,524 rows, 9 columns (7 predictors, target, ID)
-- **Test:** 6,175 rows, 8 columns (7 predictors, ID)
-- **Features:** mix of numerical and categorical
-- **Target:** Personality (Introvert / Extrovert)
+- Train: 18,524 rows × 9 columns (7 features, target, ID)
+- Test: 6,175 rows × 8 columns (7 features, ID)
+- Target: Personality (Introvert / Extrovert)
+- Mix of numeric and categorical features
 
-## Steps
-- Data loading and exploration
-- Handle missing values
-- Encode categorical features
-- Scale numerical features
-- Train/test split
-- Model training:
-  - Logistic Regression
-  - Random Forest
-  - XGBoost
-  - LightGBM
-  - CatBoost
-  - SVM
-  - KNN
-  - Gradient Boosting
-- Evaluate models (accuracy, precision, recall, F1 score)
-- Ensemble models for better performance
-
-## Results
-- **Best model:** Ensemble of top classifiers
-- **Metrics:** Accuracy and F1 score highest among tested models
+## Methods
+- EDA and plots
+- Preprocessing
+  - OneHotEncoder for categorical
+  - StandardScaler for numeric
+  - ColumnTransformer + Pipeline
+- Models
+  - RandomForestClassifier
+  - XGBClassifier
+  - CatBoostClassifier
+- Tuning
+  - Optuna for RF, XGB, CatBoost
+- Evaluation
+  - Accuracy, Precision, Recall, F1
+  - Confusion matrix, classification report
+- Ensemble
+  - Majority vote of RF + XGB + CatBoost
+  - Soft voting by averaging predicted probabilities
